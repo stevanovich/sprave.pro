@@ -1,0 +1,245 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	font-size: 16px;
+	font-family: Arial, Sans-serif;
+	padding-top: 11em;
+}
+
+
+/* ----- oglavlje ----- */
+#header
+{
+	width: 100%;
+	height: 5em;
+	background: #577ba2;
+	color: #fff;
+	position: absolute;
+	margin-top: -6em;
+	z-index: 999;
+	text-align: center;
+/*	border-bottom: 4px solid #3b6088;*/
+}
+
+#brand,
+#message,
+#contact
+{
+	position: absolute;
+}
+
+#brand
+{
+	margin-top: 0.4em;
+	left: 6em;
+}
+
+#brand #name
+{
+	font-size: 2em;
+}
+
+#brand #slogan
+{
+	font-size: 1.5em;
+}
+
+#message
+{
+	font-size: 1.1em;
+	width: 24em;
+	margin-top: 1em;
+	margin-left: -12em;
+}
+
+#contact
+{
+	padding-top: 0.4em;
+	right: 6em;
+	font-size: 1.2em;
+}
+
+#contact a
+{
+	color: #fff;
+	font-size: 0.8em;
+}
+
+
+/* ----- proizvodi ----- */
+#products
+{
+	margin-bottom: 4em;
+	text-align: center;
+	width: 100%;
+}
+
+.product
+{
+	display: -moz-inline-box;
+	display: inline-block;
+	padding: 1em;
+	margin: 0;
+	cursor: default;
+}
+
+.product:hover
+{
+	-webkit-box-shadow: 0px 0px 5px 1px #aaa;
+	   -moz-box-shadow: 0px 0px 5px 1px #aaa;
+	        box-shadow: 0px 0px 5px 1px #aaa;
+}
+
+.product img
+{
+	height: 250px;
+	border: none;
+	background: #234;
+}
+
+.product h2
+{
+	margin-top: 0.2em;
+	font-size: 1.2em;
+	font-weight: normal;
+	font-family: Georgia, Arial;
+}
+
+.price
+{
+	color: #060;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+
+
+/* ----- Opis ----- */
+#disclamer
+{
+	padding: 1em 0;
+	text-align: center;
+}
+
+#disclamer p
+{
+	width: 35em;
+	text-align: left;
+	margin: 1em auto;
+}
+
+/* Styles for elements having a data-tooltip attribute - using the star selector is processor intensive so you may wish to change this to list a known, limited set of tags instead */
+.product[data-tooltip]
+{
+	/* Relativly position the tooltip to enable us to position:absolute the generated content */
+	position:relative;
+	
+	/* Remove the styles for IE7 and below - could be passed using conditional comments */
+	*text-decoration: inherit;   
+	*border-bottom-width: inherit;
+	*border-bottom-style: inherit;	
+	*cursor: inherit;
+	*position: inherit;	    
+}
+
+/* Default :before & :after values */     
+.product[data-tooltip]:after,
+.product[data-tooltip]:before
+{
+	content: "";
+	
+	/* Don't show tooltip by default */
+	opacity: 0;
+	
+	/* Set a high z-index */
+	z-index: 998;
+	
+	/* Animations won't (yet) work on pseudo elements - shame really as this should fade the tooltip in after one second - but I'll leave the rules for posterity */
+	-moz-transition-property: opacity;
+	-moz-transition-duration: 2s;
+	-moz-transition-delay: 1s;
+	
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: 2s;
+	-webkit-transition-delay: 1s;
+	
+	-o-transition-property: opacity;
+	-o-transition-duration: 2s;
+	-o-transition-delay: 1s;
+	
+	transition-property: opacity;
+	transition-duration: 2s;
+	transition-delay: 1s;  
+	
+	/* -moz won't understand the text-decoration here but inherits the parent value of "none" successfully */
+	text-decoration: none !important;
+	outline: none;
+}
+
+/* Tooltip body - shown on hover or focus */
+.product[data-tooltip]:hover:after,
+.product[data-tooltip]:focus:after
+{
+	/* Slightly opaque tooltip */
+	opacity: 0.94;
+	
+	/* Set display to block (or inline-block) */
+	display: block;
+	
+	/* Use the data-tooltip attribute to set the content*/
+	content: attr(data-tooltip);
+	
+	/* Position the tooltip body under the arrow and in the middle of the text */
+	position: absolute;
+	top: -10%;
+	left: 50%;
+	margin: 0 0 0 -165px;
+	
+	/* Set the width */
+	width: 300px;
+	
+	/* Pad */
+	padding: 1em;
+	
+	/* Style the tooltip */
+	line-height: 18px;
+	
+	/* min-height */
+	min-height: 18px; 
+	
+	/* Set font styles */  
+	color: #fff;
+	font-size: 0.9em;
+	font-weight: normal;
+	
+	/* Fallback background color */
+	background: #ddd; 
+	text-align: left;	
+	outline: none;
+	
+	/* Moz doesn't recognise the following... */
+	text-decoration: none !important;
+	
+/*	Background gradient	
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+	background: -moz-linear-gradient(top, #fff, #eee);
+*/	
+	background: #577ba2;
+
+	/* Round the corners */
+	-webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+	        border-radius: 10px;
+	
+	/* Add a drop shadow */
+	-webkit-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
+	   -moz-box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
+	        box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
+			
+	/* Add a Text shadow */
+	text-shadow: -1px -1px 1px #555; 
+}
